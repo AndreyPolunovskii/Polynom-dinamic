@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Konva from 'konva'
-import { Circle } from 'react-konva'
+import { Text, Circle } from 'react-konva'
 import { MyCircleProps } from './MyCircleInterfaces'
 
 export const MyCircle: React.FC<MyCircleProps> = ({
@@ -39,6 +39,7 @@ export const MyCircle: React.FC<MyCircleProps> = ({
   }
 
   return (
+    <React.Fragment>
     <Circle
       key={i}
       x={x}
@@ -60,5 +61,13 @@ export const MyCircle: React.FC<MyCircleProps> = ({
       data_id={id}
       data_typeCircle={typeShape}
     />
+    <Text
+      x={x}
+      y={y}
+      scaleX={1.2}
+      scaleY={1.2}
+      text={draggable?"c"+i:""}
+    />
+  </React.Fragment>
   )
 }

@@ -10,29 +10,37 @@ export const solverWrapper : SolverFunc = (points) => {
   let coeffs = newPoints.coeffPoints
 
   roots = ChangeCoordinates(roots)
-  coeffs = ChangeCoordinates(coeffs)
+  coeffs = ChangeCoordinatesOnlyShift(coeffs)
   newPoints.rootPoints = solver(
     Complexification(roots),
     Complexification(coeffs)
   )
   newPoints.rootPoints = UnChangeCoordinates(newPoints.rootPoints)
-  console.log(newPoints.rootPoints[0])
   return newPoints
+}
+
+
+/////////////////////////////////////////
+const ChangeCoordinatesOnlyShift = (items :Point[]) => {
+  return items.map(item => ({
+      x : item.x - GLOBAL_WIDTH_CANVAS/2,
+      y : item.y - GLOBAL_HEIGHT_CANVAS/2
+  }));
 }
 
 /////////////////////////////////////////
 const ChangeCoordinates = (items :Point[]) => {
   return items.map(item => ({
-      x : (item.x/ALPHA - GLOBAL_WIDTH_CANVAS/2),
-      y : (item.y/ALPHA - GLOBAL_HEIGHT_CANVAS/2)
+      x : (item.x - GLOBAL_WIDTH_CANVAS/2)/ALPHA,
+      y : (item.y - GLOBAL_HEIGHT_CANVAS/2)/ALPHA
   }));
 }
 
 /////////////////////////////////////////
 const UnChangeCoordinates = (items :Point[]) => {
   return items.map(item => ({
-      x : (item.x + GLOBAL_WIDTH_CANVAS/2)*ALPHA,
-      y : (item.y + GLOBAL_HEIGHT_CANVAS/2)*ALPHA
+      x : (item.x*ALPHA + GLOBAL_WIDTH_CANVAS/2),
+      y : (item.y*ALPHA + GLOBAL_HEIGHT_CANVAS/2)
   }));
 }
 

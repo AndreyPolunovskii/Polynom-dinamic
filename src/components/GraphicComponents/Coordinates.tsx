@@ -18,7 +18,7 @@ export const Coordinates: React.FC = () => {
         sceneFunc={(context, shape) => {
           context.beginPath()
           context.moveTo(GLOBAL_WIDTH_CANVAS / 2, 0)
-          context.lineTo(GLOBAL_WIDTH_CANVAS / 2, context.canvas.height)
+          context.lineTo(GLOBAL_WIDTH_CANVAS / 2, context.canvas.height*1.2)
           context.closePath()
           context.fillStrokeShape(shape)
         }}
@@ -37,7 +37,7 @@ export const Coordinates: React.FC = () => {
         sceneFunc={(context, shape) => {
           context.beginPath()
           context.moveTo(0, GLOBAL_HEIGHT_CANVAS / 2)
-          context.lineTo(context.canvas.width, GLOBAL_HEIGHT_CANVAS / 2)
+          context.lineTo(context.canvas.width*1.2, GLOBAL_HEIGHT_CANVAS / 2)
           context.closePath()
           context.fillStrokeShape(shape)
         }}
