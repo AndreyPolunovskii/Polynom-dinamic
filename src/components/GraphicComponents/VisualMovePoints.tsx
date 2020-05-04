@@ -13,7 +13,10 @@ export const VisualMovePoints: React.FC = () => {
   const [points, setPoints] = useState<Points>(initState)
 
   useEffect (()=>{
-      setPoints(mockState)
+      let newPoints = mockState //mockState надо будет перекинуть в пропсы
+      for (let i=0;i<10;i++)
+        newPoints = solverWrapper(newPoints)
+      setPoints(newPoints)
   },[])
 
   const handleDragMove = (e: Konva.KonvaEventObject<DragEvent>): void => {

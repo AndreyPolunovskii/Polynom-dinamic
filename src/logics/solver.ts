@@ -69,6 +69,7 @@ const N = 4;
 const NewcRoots : Complex[] = []
 cRoots.forEach( root => {
   let __root = root
+  //тут можно ускорить добавив проверяющее условие на близость к нулю корня
   for (let k = 0; k < N; k ++ )
     __root = __root.sub( polynom(__root,cCoeffs).div(diff_polynom(__root,cCoeffs)) )
   NewcRoots.push(__root)

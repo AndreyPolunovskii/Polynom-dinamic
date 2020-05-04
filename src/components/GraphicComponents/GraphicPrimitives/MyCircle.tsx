@@ -22,7 +22,6 @@ export const MyCircle: React.FC<MyCircleProps> = ({
       },
       scaleX: 1.1,
       scaleY: 1.1,
-      opacity: 1,
     })
   }
 
@@ -34,7 +33,6 @@ export const MyCircle: React.FC<MyCircleProps> = ({
       scaleY: 1,
       shadowOffsetX: 5,
       shadowOffsetY: 5,
-      opacity: 1,
     })
   }
 
