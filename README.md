@@ -1,0 +1,2 @@
+# Polynom-dinamic
+Polynom-dinamic
