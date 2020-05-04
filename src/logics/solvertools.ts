@@ -1,8 +1,6 @@
 import { Complex } from './complex'
 
-
-
-
+///////////////////////////////////////
 export function polynom(x : Complex ,coeffs : Complex[] ) {
   let sum : Complex = new Complex(1,0);
   coeffs.forEach( ( item : Complex, i ) => {
@@ -11,6 +9,7 @@ export function polynom(x : Complex ,coeffs : Complex[] ) {
   return sum
 }
 
+//////////////////////////////////////
 export function diff_polynom(x : Complex ,coeffs : Complex[] ) {
   let sum : Complex = new Complex(0,0);
   coeffs.forEach( ( item : Complex, i ) => {
