@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Konva from 'konva'
 import { Circle } from 'react-konva'
-import { GLOBAL_HEIGHT_CANVAS, GLOBAL_WIDTH_CANVAS } from '../../GlobalConstants'
 import { MyCircleProps } from './MyCircleInterfaces'
 
 export const MyCircle: React.FC<MyCircleProps> = ({
@@ -9,6 +8,10 @@ export const MyCircle: React.FC<MyCircleProps> = ({
   id,
   typeShape,
   handleDragMove,
+  color,
+  draggable,
+  x,
+  y
 }) => {
 
   const handleDragStart = (e: Konva.KonvaEventObject<DragEvent>): void => {
@@ -19,7 +22,7 @@ export const MyCircle: React.FC<MyCircleProps> = ({
       },
       scaleX: 1.1,
       scaleY: 1.1,
-      opacity: 0.5,
+      opacity: 1,
     })
   }
 
@@ -31,22 +34,22 @@ export const MyCircle: React.FC<MyCircleProps> = ({
       scaleY: 1,
       shadowOffsetX: 5,
       shadowOffsetY: 5,
-      opacity: 0.5,
+      opacity: 1,
     })
   }
 
   return (
     <Circle
       key={i}
-      x={Math.random() * GLOBAL_WIDTH_CANVAS}
-      y={Math.random() * GLOBAL_HEIGHT_CANVAS}
+      x={x}
+      y={y}
       radius={10}
       numPoints={5}
       innerRadius={20}
       outerRadius={40}
-      fill="#89b717"
-      opacity={0.8}
-      draggable
+      fill={color}
+      opacity={1}
+      draggable={draggable}
       rotation={Math.random() * 180}
       shadowColor="black"
       shadowBlur={10}
