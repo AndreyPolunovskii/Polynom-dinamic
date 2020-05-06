@@ -65,7 +65,7 @@ return pointItems
 //////////////////////////////////////////////
 //Метод Ньютона
 const solver = (cRoots : Complex[], cCoeffs : Complex[]) => {
-const N = 4;
+const N = 2;
 const NewcRoots : Complex[] = []
 cRoots.forEach( root => {
   let __root = root

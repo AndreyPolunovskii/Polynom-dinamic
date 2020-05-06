@@ -1,0 +1,40 @@
+$HeightInputs : 35px;
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: $HeightInputs;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.wrapper_item {
+  display: flex;
+
+  & p {
+    margin: 0;
+    margin-top: 3px;
+    margin-right: 10px;
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  & input {
+    font-size: 19px;
+    border-radius: 5px;
+    border: none;
+    background-color: #caded5;
+    border-color: none;
+    outline:none;
+    padding-left: 10px;
+    padding-right: 5px;
+    width: 200px;
+
+    &:focus {
+      background-color: #b0bfc8;
+    }
+
+  }
+
+}

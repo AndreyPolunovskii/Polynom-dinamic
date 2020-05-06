@@ -3,21 +3,29 @@ import Konva from 'konva'
 import { Layer } from 'react-konva'
 import { MyCircle } from './GraphicPrimitives/MyCircle'
 import { Points } from './InterfacePoints'
-import { mockState } from './MockInitPoints'
+import { initPoints } from './InitPoints'
 import { solverWrapper } from '../../logics/solver'
 
-export const VisualMovePoints: React.FC = () => {
+interface propVisualMovePoints {
+  order: number
+  queryInit: number
+}
+
+
+export const VisualMovePoints: React.FC<propVisualMovePoints> = ({
+  order,
+  queryInit
+}) => {
 
   const initState : Points = { coeffPoints : [], rootPoints: []}
 
   const [points, setPoints] = useState<Points>(initState)
 
   useEffect (()=>{
-      let newPoints = mockState //mockState надо будет перекинуть в пропсы
-      for (let i=0;i<10;i++)
-        newPoints = solverWrapper(newPoints)
-      setPoints(newPoints)
-  },[])
+    let newPoints = initPoints(order,queryInit)
+    for (let i=0;i<20;i++) newPoints = solverWrapper(newPoints)
+    setPoints(newPoints)
+  },[order,queryInit])
 
   const handleDragMove = (e: Konva.KonvaEventObject<DragEvent>): void => {
     let currentPoint = {x:e.target.x(),y:e.target.y()}

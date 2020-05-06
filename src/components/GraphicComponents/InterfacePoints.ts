@@ -1,11 +1,9 @@
-
-
 export interface Point {
-    x: number,
+    x: number
     y: number
 }
 
 export interface Points {
-    coeffPoints : Point[],
+    coeffPoints : Point[]
     rootPoints : Point[]
 }

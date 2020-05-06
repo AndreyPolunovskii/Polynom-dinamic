@@ -3,11 +3,16 @@ import { Stage } from 'react-konva'
 import { VisualMovePoints } from './GraphicComponents/VisualMovePoints'
 import { GLOBAL_HEIGHT_CANVAS, GLOBAL_WIDTH_CANVAS } from './GlobalConstants'
 import { Coordinates } from './GraphicComponents/Coordinates'
-
 import cs from './WrapperStage.module.scss'
 
-export const WrapperStage: React.FC = () => {
+interface propInputParams {
+  order: number
+  queryInit: number
+}
+
+export const WrapperStage: React.FC<propInputParams> = ({order, queryInit}) => {
   return (
+  <React.Fragment>
     <div className={cs.wrapper}>
       <div
         style={{ height: GLOBAL_HEIGHT_CANVAS, width: GLOBAL_WIDTH_CANVAS }}
@@ -17,10 +22,14 @@ export const WrapperStage: React.FC = () => {
             height={GLOBAL_HEIGHT_CANVAS}
             width={GLOBAL_WIDTH_CANVAS}
             >
-              <VisualMovePoints />
+              <VisualMovePoints
+                order={order}
+                queryInit={queryInit}
+               />
               <Coordinates />
             </Stage>
           </div>
         </div>
+      </React.Fragment>
       )
     }
